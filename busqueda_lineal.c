@@ -89,3 +89,43 @@ int main(){
 	return 0;
 } 
 
+//EJERCICIO 4
+#include <stdio.h>
+
+int busquedalinealCentinela(int arr[], int n, int centinela){
+    int ultimo = arr[n-1];
+    arr[n-1] = centinela;
+
+    int i = 0;
+    while (arr[i] != centinela) 
+    {
+        i++;
+    }
+    arr[n-1] = ultimo;
+
+    if (i < n-1 || arr[n-1] == centinela)
+    {
+        return i;
+    }else{
+        return -1;
+    }
+    
+}
+
+int main(int argc, char const *argv[])
+{
+    int arr[] = {5,8,1,3,9,2};
+    int n = sizeof(arr)/ sizeof(arr[0]);
+    int clave = 7;
+
+    int pos = busquedalinealCentinela(arr, n, clave);
+
+    if (pos != -1)
+    {
+        printf("Elemento %d encontrado en la posicion %d\n", clave, pos);
+    }else{
+        printf("Elemento %d no encontrado\n", clave);
+    }
+    
+    return 0;
+}
