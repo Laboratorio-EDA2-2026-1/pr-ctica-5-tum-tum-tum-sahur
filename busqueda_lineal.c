@@ -60,3 +60,32 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 
+
+//EJERCICIO 3
+#include <stdio.h>
+
+int busquedaLR(int A[], int n, int x, int k) {
+	//si k llego al tamaño del arreglo, no se enconro el elemento
+	if(k == n)
+		return -1;
+
+	if (A[k] == x)
+		return k;
+
+	return busquedaLR(A, n, x, k + 1);
+}
+
+int main(){
+	int A[] = {7, 3, 5, 8, 2}; //ejemplo
+	int n = sizeof(A) / sizeof(A[0]);
+	int x = 5;
+	int result = busquedaLR(A, n, x, 0);
+
+	if (result != -1)
+		printf("El elemento %d encontrado en la poscicion %d.\n", x, result);
+	else 
+		printf("El elemento %d no encontrado en el arreglo.\n", x);
+
+	return 0;
+} 
+
