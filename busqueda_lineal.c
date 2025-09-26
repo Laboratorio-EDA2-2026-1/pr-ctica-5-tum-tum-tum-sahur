@@ -27,3 +27,36 @@ int main() {
 
 	return 0;
 }
+
+//EJERCICIO 2
+#include <stdio.h>
+int busquedalinealMejorada(int *arr, int n, int k){
+    int i = 0;
+    int encontrado = 0;
+    while (i < n && !encontrado) {
+        if(arr[i] == k){
+            encontrado = 1;
+        }else{
+            i++;
+        }
+    }
+    if(encontrado){
+        return i;
+    }else{
+        return -1;
+    }
+}
+
+int main(int argc, const char * argv[]) {
+    int arr[] = {2, 9, 5, 3, 5};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int k = 5;
+    int pos = busquedalinealMejorada(arr, n, k);
+    if(pos != -1){
+        printf("Elemento %d encontrado en la posicion %d\n",k, pos);
+    }else{
+        printf("Elemento %d no encontrado", k);
+    }
+    return 0;
+}
+
